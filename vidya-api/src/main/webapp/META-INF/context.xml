@@ -1,0 +1,10 @@
+<Context>
+	<ResourceLink name="username" global="username" type="java.lang.String"/>
+    <ResourceLink name="password" global="password" type="java.lang.String"/>
+    <ResourceLink name="host" global="host" type="java.lang.String"/>
+    <ResourceLink name="port" global="port" type="java.lang.String"/>
+    <ResourceLink name="dbName" global="dbName" type="java.lang.String"/>
+    <ResourceLink name="piwikDbUrl" global="piwikDbUrl" type="java.lang.String"/>
+    <ResourceLink name="piwikUser" global="piwikUser" type="java.lang.String"/>
+    <ResourceLink name="piwikPassword" global="piwikPassword" type="java.lang.String"/>
+</Context>
