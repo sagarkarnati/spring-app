@@ -1,7 +1,6 @@
 package com.vidya.api.controller;
 
 import javax.ws.rs.GET;
-import javax.ws.rs.Path;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

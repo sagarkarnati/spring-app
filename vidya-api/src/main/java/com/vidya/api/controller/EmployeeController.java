@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import com.vidya.api.models.Employee;
 
 @EnableWebMvc
-@RepositoryRestResource(collectionResourceRel = "employee", path = "employee1")
+@RepositoryRestResource
 public interface EmployeeController extends PagingAndSortingRepository<Employee, ObjectId>
 {
 	List<Employee> findByLastName(@Param("name") String name);
