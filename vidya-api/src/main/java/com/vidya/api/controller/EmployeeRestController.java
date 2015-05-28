@@ -16,14 +16,13 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 @Api(value = "onlinestore", description = "Operations pertaining to Online Store")
 @RestController
-@Path("/rest")
 public class EmployeeRestController
 {
 	@Autowired
 	private EmployeeService employeeService;
 	
 	@GET
-	@RequestMapping("/employee")
+	@RequestMapping("/testEmployee")
 	@ApiOperation(value = "View the Specific info of the product")	
 	public Employee greeting(
 			@ApiParam(name = "productId", value = "The Id of the product to be viewed", required = true) 
