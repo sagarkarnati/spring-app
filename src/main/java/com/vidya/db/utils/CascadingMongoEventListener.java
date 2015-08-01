@@ -12,6 +12,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.ReflectionUtils;
 
 public class CascadingMongoEventListener extends AbstractMongoEventListener {
+	
 	@Autowired
 	private MongoOperations mongoOperations;
 
