@@ -1,12 +1,32 @@
-# spring-app
-spring app which will have end-to-end functionality
+## Synopsis
 
-URL for REST Repository
-http://localhost:8080/vidya-api/employees
 
-URL to list all the resources
-http://localhost:8080/vidya-api/alps/
+## Code Example
 
-URL for REST CONTROLLER
-http://localhost:8080/vidya-api/testEmployee
 
+## Motivation
+
+
+## Installation
+
+
+## API Reference
+
+
+## Tests
+
+
+## Contributors
+
+
+## License
+
+## TODO
+
+1. Adding Spring Security.
+2. InMemory UniTests with fongo.
+3. Travis CI Integration.
+4. Swagger Api Tool Integration.
+5. HTTP Request and Reponse Logging. 
+
+   

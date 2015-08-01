@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<jee:jndi-lookup id="username" jndi-name="username" lookup-on-startup="true" resource-ref="true" />
+	<jee:jndi-lookup id="password" jndi-name="password" lookup-on-startup="true" resource-ref="true" />
+	<jee:jndi-lookup id="host" jndi-name="host"	lookup-on-startup="true" resource-ref="true" />
+	<jee:jndi-lookup id="port" jndi-name="port"	lookup-on-startup="true" resource-ref="true" />
+	<jee:jndi-lookup id="dbName" jndi-name="dbName"	lookup-on-startup="true" resource-ref="true" />
+	
+
+	<bean id="databaseprops"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true"/>
+		<property name="properties">
+			<bean class="java.util.Properties">
+				<constructor-arg>
+					<map>
+						<entry key="mongo.username" value-ref="username" />
+						<entry key="mongo.password" value-ref="password" />
+						<entry key="mongo.host" value-ref="host" />
+						<entry key="mongo.port" value-ref="port" />
+						<entry key="mongo.dbName" value-ref="dbName" />
+					</map>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+</beans>
