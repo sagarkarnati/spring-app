@@ -13,7 +13,4 @@
 	</bean>
 	
 	<mongo:repositories base-package="com.vidya.api.repository" mongo-template-ref="mongoTemplate" />
-	
-	<!-- For cascading save -->
-	<bean class="com.vidya.db.utils.CascadingMongoEventListener" />
 </beans>

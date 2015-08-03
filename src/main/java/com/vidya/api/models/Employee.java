@@ -3,6 +3,9 @@ package com.vidya.api.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -13,11 +16,15 @@ public class Employee
 {
 	@Id
 	private ObjectId id;
+	
+	@NotNull
+	@Size(min=3)
 	private String firstName;
+	
 	private String middleName;
 	private String lastName;
 	private Date createdTime;
-
+	
 	@DBRef
 	@CascadeSave
 	private List<Devices> deviceList;
