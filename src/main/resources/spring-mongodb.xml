@@ -4,7 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-<!-- 	<mongo:mongo host="${mongo.host}" port="${mongo.port}" id="mongo" /> -->
 	<mongo:mongo-client host="127.0.0.1" port="27017" credentials="root:root@test"/>
 
 	<mongo:db-factory dbname="test" mongo-ref="mongo" id="mongoDbFactory" />
