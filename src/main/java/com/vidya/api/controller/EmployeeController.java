@@ -1,6 +1,6 @@
 package com.vidya.api.controller;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -14,5 +14,5 @@ import com.vidya.api.models.Employee;
 @RepositoryRestResource
 public interface EmployeeController extends PagingAndSortingRepository<Employee, ObjectId>
 {
-	List<Employee> findByLastName(@Param("name") String name);	
+	Collection<Employee> findByLastName(@Param("name") String name);	
 }
