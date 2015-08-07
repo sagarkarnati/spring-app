@@ -33,7 +33,7 @@ Travis CI Integration.
 Environment specific logging.
 
 ## TODO
-Exception Handler in REST Services
+Exception Handler with @ControllerAdvice in REST Services
 Hibernate Validation framework for domain objects. 
 Adding Spring Security.
 	OAuth 1.0
