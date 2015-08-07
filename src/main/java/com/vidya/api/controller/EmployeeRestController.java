@@ -1,6 +1,8 @@
 package com.vidya.api.controller;
 
+import javax.validation.Valid;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 @Api(value = "onlinestore", description = "Operations pertaining to Online Store")
 @RestController
+@RequestMapping("/custom")
 public class EmployeeRestController
 {
 	@Autowired
@@ -28,5 +31,12 @@ public class EmployeeRestController
 			@RequestParam(value = "name", defaultValue = "World") String name)
 	{
 		return new Employee(name);
+	}
+	
+	@POST
+	@RequestMapping("/employee")		
+	public Employee addEmployee(@Valid Employee employee)
+	{
+		return employee;
 	}
 }

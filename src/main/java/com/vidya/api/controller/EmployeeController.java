@@ -15,4 +15,6 @@ import com.vidya.api.models.Employee;
 public interface EmployeeController extends PagingAndSortingRepository<Employee, ObjectId>
 {
 	List<Employee> findByLastName(@Param("name") String name);
+	
+	List<Employee> findByMiddleName(@Param("middleName") String name);
 }

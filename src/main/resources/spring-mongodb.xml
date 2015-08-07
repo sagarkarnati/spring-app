@@ -14,6 +14,7 @@
 	
 	<mongo:repositories base-package="com.vidya.api.repository" mongo-template-ref="mongoTemplate" />
 	
-	<!-- For cascading save -->
-	<bean class="com.vidya.db.utils.CascadingMongoEventListener" />
+	<!-- For auditing -->
+	<mongo:auditing auditor-aware-ref="auditor" />	
+	<bean id="auditor" class="com.vidya.utils.MyAppAuditor"/>	
 </beans>

@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 		http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository.xsd">
 
-	<repository:jackson2-populator locations="classpath:data/data.json" />
+ 	<repository:jackson2-populator locations="classpath:data/data.json" />
 
 	<bean name="fongo" class="com.github.fakemongo.Fongo">
 		<constructor-arg value="InMemoryMongo" />
@@ -26,6 +26,5 @@
 	<mongo:repositories base-package="com.vidya.api.repository"
 		mongo-template-ref="mongoTemplate" />
 
-	<!-- For cascading save -->
-	<bean class="com.vidya.db.utils.CascadingMongoEventListener" />
+	<bean id="validatorFactory" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 </beans>

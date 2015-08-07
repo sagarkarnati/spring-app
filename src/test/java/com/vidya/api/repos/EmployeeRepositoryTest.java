@@ -8,17 +8,25 @@ import org.testng.annotations.Test;
 import com.vidya.api.models.Employee;
 import com.vidya.api.repository.EmployeeRepository;
 
-@ContextConfiguration(locations = { "classpath:spring-base-test.xml","classpath:spring-fongo.xml" })
+@ContextConfiguration(locations = { "classpath:spring-base-test.xml", "classpath:spring-fongo-test.xml" })
 public class EmployeeRepositoryTest extends AbstractTestNGSpringContextTests
 {
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
+	@Test(expectedExceptions = { Exception.class })
+	public void createCustomerConfiguration_fail() throws Exception
+	{
+		Employee employee = new Employee();
+		employeeRepository.save(employee);
+	}
+	
 	@Test
 	public void createCustomerConfiguration()
 	{
-		Employee employee = new Employee("Vidya");
+		Employee employee = new Employee();
+		employee.setFirstName("asdasdasdasd");
 		employeeRepository.save(employee);
 	}
 }
