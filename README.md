@@ -50,3 +50,4 @@ Build Status : <img src="https://travis-ci.org/sagarkarnati/spring-app.svg?branc
 *   Code Coverage Tool like ECL-EMMA
 *   Swagger Api Tool Integration.
 *   PUB-SUB model for mongodb
+*   Env Specific Loggin
