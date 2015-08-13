@@ -1,0 +1,10 @@
+[{ 
+    "_class" : "com.vidya.api.models.User",
+    "username" : "vidya",
+    "password" : "b79aca2251469e626132a96ade2e5582d50b588e", 
+    "roles" : [{
+    	"_class" : "com.vidya.api.models.Role",
+    	"name" : "ROLE_ADMIN",
+    	"privileges" : [ "ROLE_COMPANY_TRANSPORT_MANAGER" ]
+     }]
+}]

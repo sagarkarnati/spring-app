@@ -33,9 +33,10 @@ Build Status : <img src="https://travis-ci.org/sagarkarnati/spring-app.svg?branc
 *   Exception Handler in REST Services
 *   Hibernate Validation framework for domain objects.
 *   MongoDB level validations
-*   Auditing entities in Spring Data MongoDB
+
 
 ## TODO
+*   Auditing entities in Spring Data MongoDB
 *   Spring security
 	*   Project setup and configuration.
 		*   Resource level security configuration.

@@ -20,7 +20,7 @@ public class MongoDBSchemaValidator extends AbstractMongoEventListener
 	private static final Logger LOG = LoggerFactory.getLogger(MongoDBSchemaValidator.class);
 	
 	@Autowired
-	@Qualifier(value="validatorFactory")
+	@Qualifier("validatorFactory")
 	private ValidatorFactory validatorFactory;
 
 	@Override

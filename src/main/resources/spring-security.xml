@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mongo="http://www.springframework.org/schema/data/mongo" xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:sec="http://www.springframework.org/schema/security"
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
-		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.5.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
-		http://www.springframework.org/schema/security
-	http://www.springframework.org/schema/security/spring-security-4.0.xsd ">
-	
-	
-</beans>
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+	<!-- This is to enable security at method level -->
+	<global-method-security pre-post-annotations="enabled" />
+
+	<!-- Any one who is a user can access this url with below pattern -->
+	<http>
+		<intercept-url pattern="/**" access="hasRole('COMPANY_TRANSPORT_MANAGER')" />
+		<http-basic />
+		<logout />
+	</http>
+
+	<authentication-manager>
+		<authentication-provider user-service-ref="loginService">
+			<password-encoder hash="sha" />
+		</authentication-provider>
+	</authentication-manager>
+</beans:beans>

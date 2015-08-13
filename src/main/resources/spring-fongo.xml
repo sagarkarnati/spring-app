@@ -3,11 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:repository="http://www.springframework.org/schema/data/repository"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.5.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
-
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository.xsd">
+	
+	<repository:jackson2-populator locations="classpath:data/*.json" />
+	
 	<bean name="fongo" class="com.github.fakemongo.Fongo">
 		<constructor-arg value="InMemoryMongo" />
 	</bean>
@@ -21,11 +25,9 @@
 
 	<mongo:repositories base-package="com.vidya.api.repository"
 		mongo-template-ref="mongoTemplate" />
-
-	<!-- For validations -->
-	<bean class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 	
 	<!-- For auditing -->
-	<mongo:auditing auditor-aware-ref="auditor" />	
-	<bean id="auditor" class="com.vidya.utils.MyAppAuditor"/>	
+<!-- 	<mongo:auditing mapping-context-ref="customMappingContext" auditor-aware-ref="auditor"/> -->
+<!-- 	<bean id="auditor" class="com.vidya.utils.MyAppAuditor"/> -->
+<!-- 	<bean id="customMappingContext" class="org.springframework.data.mongodb.core.mapping.MongoMappingContext" />	 -->
 </beans>
