@@ -11,6 +11,7 @@
 	<!-- Any one who is a user can access this url with below pattern -->
 	<http>
 		<intercept-url pattern="/**" access="hasRole('COMPANY_TRANSPORT_MANAGER')" />
+		<custom-filter ref=""/>
 		<http-basic />
 		<logout />
 	</http>

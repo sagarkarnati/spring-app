@@ -32,7 +32,6 @@ public class LoginService implements UserDetailsService
 			if(usr.getUsername().equals(username))
 				user = usr;
 		}
-//		com.vidya.api.models.User user = userRepository.findUserByUsername(username);
 		if (user == null) 
 		{
 			throw new UsernameNotFoundException("username "+username+" not available");
