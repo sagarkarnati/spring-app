@@ -3,22 +3,20 @@ package com.vidya.api.auth;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.vidya.api.models.User;
+import com.vidya.api.repository.UserRepository;
 
 @RestController
 public class UserController {
 
 	@Autowired
-	UserRepository userRepository;
+	private UserRepository userRepository;
 
 	@RequestMapping(value = "/api/users/current", method = RequestMethod.GET)
 	public User getCurrent() {
@@ -26,10 +24,10 @@ public class UserController {
 		if (authentication instanceof UserAuthentication) {
 			return ((UserAuthentication) authentication).getDetails();
 		}
-		return new User(authentication.getName()); //anonymous user support
+		return new User("vidya"); //anonymous user support
 	}
 
-	@RequestMapping(value = "/api/users/current", method = RequestMethod.PATCH)
+/*	@RequestMapping(value = "/api/users/current", method = RequestMethod.PATCH)
 	public ResponseEntity<String> changePassword(@RequestBody final User user) {
 		final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		final User currentUser = userRepository.findByUsername(authentication.getName());
@@ -69,9 +67,11 @@ public class UserController {
 		userRepository.saveAndFlush(user);
 		return new ResponseEntity<String>("role revoked", HttpStatus.OK);
 	}
+*/
 
 	@RequestMapping(value = "/admin/api/users", method = RequestMethod.GET)
-	public List<User> list() {
+	public List<User> list() 
+	{
 		return userRepository.findAll();
 	}
 }

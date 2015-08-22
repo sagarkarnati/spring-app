@@ -8,11 +8,12 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.mongodb.core.index.Indexed;
 
-public class User extends BaseModel{
-	
+public class User extends BaseModel
+{
+
 	@NotNull
 	@Size(min = 4)
-	@Indexed(unique=true)
+	@Indexed(unique = true)
 	private String username;
 
 	@NotNull
@@ -21,27 +22,56 @@ public class User extends BaseModel{
 	@NotEmpty
 	private List<Role> roles;
 
-	public String getUsername() {
+	@NotNull
+	private long expires;
+	
+	public User()
+	{
+	
+	}
+	
+	public User(String username)
+	{
+		this.username = username;
+	}
+	
+	public String getUsername()
+	{
 		return username;
 	}
 
-	public void setUsername(String username) {
+	public void setUsername(String username)
+	{
 		this.username = username;
 	}
 
-	public String getPassword() {
+	public String getPassword()
+	{
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(String password)
+	{
 		this.password = password;
 	}
 
-	public List<Role> getRoles() {
+	public List<Role> getRoles()
+	{
 		return roles;
 	}
 
-	public void setRoles(List<Role> roles) {
+	public void setRoles(List<Role> roles)
+	{
 		this.roles = roles;
+	}
+
+	public long getExpires()
+	{
+		return expires;
+	}
+
+	public void setExpires(long expires)
+	{
+		this.expires = expires;
 	}
 }

@@ -4,10 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.DatatypeConverter;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+
+import com.vidya.api.models.User;
 
 @Service
 public class TokenAuthenticationService 
@@ -17,13 +17,7 @@ public class TokenAuthenticationService
 
 	private static final String SECRET = "9SyECk96oDsTmXfogIieDI0cD/8FpnojlYSUJT5U9I/FGVmBz5oskmjOR8cbXTvoPjX+Pq/T/b1PqpHX0lYm0oCBjXWICA==";
 	
-	private final TokenHandler tokenHandler;
-
-	@Autowired
-	public TokenAuthenticationService() 
-	{
-		tokenHandler = new TokenHandler(DatatypeConverter.parseBase64Binary(SECRET));
-	}
+	private final TokenHandler tokenHandler = new TokenHandler(DatatypeConverter.parseBase64Binary(SECRET));
 
 	public void addAuthentication(HttpServletResponse response, UserAuthentication authentication) 
 	{

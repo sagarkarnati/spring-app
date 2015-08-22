@@ -2,7 +2,7 @@ package com.vidya.api.models;
 
 import java.util.List;
 
-public class Role extends BaseModel{
+public class Role{
 	
 	private String name;
 	

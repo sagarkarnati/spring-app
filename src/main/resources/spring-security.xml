@@ -9,14 +9,30 @@
 	<global-method-security pre-post-annotations="enabled" />
 
 	<!-- Any one who is a user can access this url with below pattern -->
-	<http>
-		<intercept-url pattern="/**" access="hasRole('COMPANY_TRANSPORT_MANAGER')" />
-		<custom-filter ref=""/>
-		<http-basic />
+	<http authentication-manager-ref="authenticationManager">
+		<csrf disabled="true" />
+		<intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/alps" access="hasRole('USER')" />
+		<custom-filter before="FORM_LOGIN_FILTER" ref="filterChainProxy"/>
+		<http-basic/>
 		<logout />
 	</http>
 
-	<authentication-manager>
+	<beans:bean id="statelessLoginFilter" class="com.vidya.api.auth.StatelessLoginFilter">
+		<beans:constructor-arg ref="authenticationManager" />
+	</beans:bean>
+
+	<beans:bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy">
+		<beans:constructor-arg>
+			<beans:list>
+				<filter-chain pattern="/*" filters="
+									statelessLoginFilter,
+									statelessAuthFilter" />
+			</beans:list>
+		</beans:constructor-arg>
+	</beans:bean>
+
+	<authentication-manager id="authenticationManager">
 		<authentication-provider user-service-ref="loginService">
 			<password-encoder hash="sha" />
 		</authentication-provider>

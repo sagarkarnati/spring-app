@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -56,10 +57,15 @@ public class LoginService implements UserDetailsService
 		return privileges;
 	}
 
-	private List<GrantedAuthority> getGrantedAuthorities(List<String> privileges) {
+	private List<GrantedAuthority> getGrantedAuthorities(List<String> privileges) 
+	{
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		for (String privilege : privileges) {
-			authorities.add(new SimpleGrantedAuthority(privilege));
+		for (String privilege : privileges) 
+		{
+			if(StringUtils.isNotBlank(privilege))
+			{
+				authorities.add(new SimpleGrantedAuthority(privilege));
+			}
 		}
 		return authorities;
 	}
