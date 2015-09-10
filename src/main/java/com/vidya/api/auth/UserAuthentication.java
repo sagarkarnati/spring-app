@@ -12,31 +12,35 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import com.vidya.api.models.Role;
 import com.vidya.api.models.User;
 
-public class UserAuthentication implements Authentication {
+public class UserAuthentication implements Authentication
+{
 
 	private static final long serialVersionUID = -8090800263955321111L;
-	
+
 	private final User user;
 	private boolean authenticated = true;
 
-	public UserAuthentication(User user) {
+	public UserAuthentication(User user)
+	{
 		this.user = user;
 	}
 
 	@Override
-	public String getName() {
+	public String getName()
+	{
 		return user.getUsername();
 	}
 
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
+	public Collection<? extends GrantedAuthority> getAuthorities()
+	{
 		return getGrantedAuthorities(getPrivileges(user.getRoles()));
 	}
 
-	private List<String> getPrivileges(Collection<Role> roles) 
+	private List<String> getPrivileges(Collection<Role> roles)
 	{
 		List<String> privileges = new ArrayList<String>();
-		for (Role role : roles) 
+		for (Role role : roles)
 		{
 			privileges.add(role.getName());
 			privileges.addAll(role.getPrivileges());
@@ -44,41 +48,46 @@ public class UserAuthentication implements Authentication {
 		return privileges;
 	}
 
-	private List<GrantedAuthority> getGrantedAuthorities(List<String> privileges) 
+	private List<GrantedAuthority> getGrantedAuthorities(List<String> privileges)
 	{
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		for (String privilege : privileges) 
+		for (String privilege : privileges)
 		{
-			if(StringUtils.isNotBlank(privilege))
+			if (StringUtils.isNotBlank(privilege))
 			{
 				authorities.add(new SimpleGrantedAuthority(privilege));
 			}
 		}
 		return authorities;
 	}
-	
+
 	@Override
-	public Object getCredentials() {
+	public Object getCredentials()
+	{
 		return user.getPassword();
 	}
 
 	@Override
-	public User getDetails() {
+	public User getDetails()
+	{
 		return user;
 	}
 
 	@Override
-	public Object getPrincipal() {
+	public Object getPrincipal()
+	{
 		return user.getUsername();
 	}
 
 	@Override
-	public boolean isAuthenticated() {
+	public boolean isAuthenticated()
+	{
 		return authenticated;
 	}
 
 	@Override
-	public void setAuthenticated(boolean authenticated) {
+	public void setAuthenticated(boolean authenticated)
+	{
 		this.authenticated = authenticated;
 	}
 }

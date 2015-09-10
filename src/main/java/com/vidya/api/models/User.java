@@ -10,7 +10,6 @@ import org.springframework.data.mongodb.core.index.Indexed;
 
 public class User extends BaseModel
 {
-
 	@NotNull
 	@Size(min = 4)
 	@Indexed(unique = true)
@@ -24,17 +23,17 @@ public class User extends BaseModel
 
 	@NotNull
 	private long expires;
-	
+
 	public User()
 	{
-	
+
 	}
-	
+
 	public User(String username)
 	{
 		this.username = username;
 	}
-	
+
 	public String getUsername()
 	{
 		return username;

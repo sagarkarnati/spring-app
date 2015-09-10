@@ -18,38 +18,39 @@ import com.vidya.api.models.User;
 import com.vidya.api.repository.UserRepository;
 
 @Service("loginService")
-public class LoginService implements UserDetailsService 
+public class LoginService implements UserDetailsService
 {
 	@Autowired
 	private UserRepository userRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException 
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
 	{
 		List<User> findAll = userRepository.findAll();
 		com.vidya.api.models.User user = null;
-		for(User usr : findAll)
+		for (User usr : findAll)
 		{
-			if(usr.getUsername().equals(username))
+			if (usr.getUsername().equals(username))
 				user = usr;
 		}
-		if (user == null) 
+		if (user == null)
 		{
-			throw new UsernameNotFoundException("username "+username+" not available");
+			throw new UsernameNotFoundException("username " + username + " not available");
 		}
 
-		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), true, true, true, 
-				true, getAuthorities(user.getRoles()));
+		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), true, true, true, true,
+				getAuthorities(user.getRoles()));
 	}
 
-	private Collection<? extends GrantedAuthority> getAuthorities(Collection<Role> roles) {
+	private Collection<? extends GrantedAuthority> getAuthorities(Collection<Role> roles)
+	{
 		return getGrantedAuthorities(getPrivileges(roles));
 	}
 
-	private List<String> getPrivileges(Collection<Role> roles) 
+	private List<String> getPrivileges(Collection<Role> roles)
 	{
 		List<String> privileges = new ArrayList<String>();
-		for (Role role : roles) 
+		for (Role role : roles)
 		{
 			privileges.add(role.getName());
 			privileges.addAll(role.getPrivileges());
@@ -57,12 +58,12 @@ public class LoginService implements UserDetailsService
 		return privileges;
 	}
 
-	private List<GrantedAuthority> getGrantedAuthorities(List<String> privileges) 
+	private List<GrantedAuthority> getGrantedAuthorities(List<String> privileges)
 	{
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		for (String privilege : privileges) 
+		for (String privilege : privileges)
 		{
-			if(StringUtils.isNotBlank(privilege))
+			if (StringUtils.isNotBlank(privilege))
 			{
 				authorities.add(new SimpleGrantedAuthority(privilege));
 			}

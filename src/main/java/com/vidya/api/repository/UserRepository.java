@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.vidya.api.models.User;
 
 @Repository
-public interface UserRepository extends MongoRepository<User, String>
-{
+public interface UserRepository extends MongoRepository<User, String> {
 	public User findUserByUsername(@Param("username") String username);
 }

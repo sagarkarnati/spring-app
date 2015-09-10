@@ -1,4 +1,5 @@
 package com.vidya.db.utils;
+
 import java.lang.reflect.Field;
 import java.util.Collection;
 
@@ -13,24 +14,30 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.ReflectionUtils;
 
 @Component
-public class CascadingMongoEventListener extends AbstractMongoEventListener {
-	
+public class CascadingMongoEventListener extends AbstractMongoEventListener
+{
 	@Autowired
 	private MongoOperations mongoOperations;
 
 	@Override
-	public void onBeforeConvert(final Object source) {
-		ReflectionUtils.doWithFields(source.getClass(), new ReflectionUtils.FieldCallback() {
+	public void onBeforeConvert(final Object source)
+	{
+		ReflectionUtils.doWithFields(source.getClass(), new ReflectionUtils.FieldCallback()
+		{
 
-			public void doWith(Field field) throws IllegalArgumentException, IllegalAccessException {
+			public void doWith(Field field) throws IllegalArgumentException, IllegalAccessException
+			{
 				ReflectionUtils.makeAccessible(field);
 
-				if (field.isAnnotationPresent(DBRef.class) && field.isAnnotationPresent(CascadeSave.class)) {
+				if (field.isAnnotationPresent(DBRef.class) && field.isAnnotationPresent(CascadeSave.class))
+				{
 					final Object fieldValue = field.get(source);
-					if (fieldValue != null) {
+					if (fieldValue != null)
+					{
 
 						Class fieldClass = fieldValue.getClass();
-						if (Collection.class.isAssignableFrom(field.getType())) {
+						if (Collection.class.isAssignableFrom(field.getType()))
+						{
 							fieldClass = getParameterType(field);
 						}
 
@@ -38,47 +45,53 @@ public class CascadingMongoEventListener extends AbstractMongoEventListener {
 
 						ReflectionUtils.doWithFields(fieldClass, callback);
 
-						if (!callback.isIdFound()) {
+						if (!callback.isIdFound())
+						{
 							throw new MappingException("Cannot perform cascade save on child object without id set");
 						}
 
-						if (Collection.class.isAssignableFrom(field.getType())) 
+						if (Collection.class.isAssignableFrom(field.getType()))
 						{
 							@SuppressWarnings("unchecked")
 							Collection<Object> models = (Collection<Object>) fieldValue;
-							if(!CollectionUtils.isEmpty(models))
+							if (!CollectionUtils.isEmpty(models))
 							{
-								for (Object model : models) 
+								for (Object model : models)
 								{
 									mongoOperations.save(model);
 								}
 							}
-						} else {
+						} else
+						{
 							mongoOperations.save(fieldValue);
 						}
 					}
 				}
 			}
 
-			private Class getParameterType(Field field) 
+			private Class getParameterType(Field field)
 			{
 				return field.getDeclaringClass();
 			}
 		});
 	}
 
-	private static class DbRefFieldCallback implements ReflectionUtils.FieldCallback {
+	private static class DbRefFieldCallback implements ReflectionUtils.FieldCallback
+	{
 		private boolean idFound;
 
-		public void doWith(Field field) throws IllegalArgumentException, IllegalAccessException {
+		public void doWith(Field field) throws IllegalArgumentException, IllegalAccessException
+		{
 			ReflectionUtils.makeAccessible(field);
 
-			if (field.isAnnotationPresent(Id.class)) {
+			if (field.isAnnotationPresent(Id.class))
+			{
 				idFound = true;
 			}
 		}
 
-		public boolean isIdFound() {
+		public boolean isIdFound()
+		{
 			return idFound;
 		}
 	}

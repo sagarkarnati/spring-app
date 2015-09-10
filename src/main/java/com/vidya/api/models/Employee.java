@@ -9,8 +9,8 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import com.vidya.db.utils.CascadeSave;
 
-public class Employee extends User {
-	
+public class Employee extends BaseModel
+{
 	@NotNull
 	@Size(min = 3)
 	private String firstName;
@@ -22,42 +22,52 @@ public class Employee extends User {
 	@CascadeSave
 	private List<Devices> deviceList;
 
-	public Employee() {
+	public Employee()
+	{
 	}
 
-	public Employee(String firstName) {
+	public Employee(String firstName)
+	{
 		this.firstName = firstName;
 	}
 
-	public String getFirstName() {
+	public String getFirstName()
+	{
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
+	public void setFirstName(String firstName)
+	{
 		this.firstName = firstName;
 	}
 
-	public String getMiddleName() {
+	public String getMiddleName()
+	{
 		return middleName;
 	}
 
-	public void setMiddleName(String middleName) {
+	public void setMiddleName(String middleName)
+	{
 		this.middleName = middleName;
 	}
 
-	public String getLastName() {
+	public String getLastName()
+	{
 		return lastName;
 	}
 
-	public void setLastName(String lastName) {
+	public void setLastName(String lastName)
+	{
 		this.lastName = lastName;
 	}
 
-	public List<Devices> getDeviceList() {
+	public List<Devices> getDeviceList()
+	{
 		return deviceList;
 	}
 
-	public void setDeviceList(List<Devices> deviceList) {
+	public void setDeviceList(List<Devices> deviceList)
+	{
 		this.deviceList = deviceList;
 	}
 

@@ -6,18 +6,16 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.vidya.api.models.User;
 
+public class SpringSecurityAuditorAware implements AuditorAware<User>
+{
+    public User getCurrentAuditor()
+    {
+	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-public class SpringSecurityAuditorAware implements AuditorAware<User> {
-
-  public User getCurrentAuditor() {
-
-    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-    if (authentication == null || !authentication.isAuthenticated()) {
-      return null;
+	if (authentication == null || !authentication.isAuthenticated())
+	{
+	    return null;
+	}
+	return ((User) authentication.getPrincipal());
     }
-
-    return ((User) authentication.getPrincipal());
-  }
 }
-

@@ -18,7 +18,7 @@ import com.mongodb.DBObject;
 public class MongoDBSchemaValidator extends AbstractMongoEventListener
 {
 	private static final Logger LOG = LoggerFactory.getLogger(MongoDBSchemaValidator.class);
-	
+
 	@Autowired
 	@Qualifier("validatorFactory")
 	private ValidatorFactory validatorFactory;
@@ -29,7 +29,8 @@ public class MongoDBSchemaValidator extends AbstractMongoEventListener
 		LOG.debug("Validating object: {}", source);
 		Set violations = validatorFactory.getValidator().validate(source);
 
-		if (!violations.isEmpty()) {
+		if (!violations.isEmpty())
+		{
 
 			LOG.info("During object: {} validation violations found: {}", source, violations);
 			throw new ConstraintViolationException(violations);
