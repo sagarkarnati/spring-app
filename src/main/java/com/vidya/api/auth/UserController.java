@@ -27,6 +27,12 @@ public class UserController {
 		return new User("vidya"); //anonymous user support
 	}
 
+	@RequestMapping(value = "/login", method = RequestMethod.OPTIONS)
+	public void test() 
+	{
+		System.out.println("Inside options");
+	}
+	
 /*	@RequestMapping(value = "/api/users/current", method = RequestMethod.PATCH)
 	public ResponseEntity<String> changePassword(@RequestBody final User user) {
 		final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

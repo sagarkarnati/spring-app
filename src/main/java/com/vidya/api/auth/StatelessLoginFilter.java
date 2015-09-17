@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -56,6 +58,11 @@ public class StatelessLoginFilter extends AbstractAuthenticationProcessingFilter
 		return getAuthenticationManager().authenticate(loginToken);
 	}
 
+	static String convertStreamToString(java.io.InputStream is) {
+	    java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+	    return s.hasNext() ? s.next() : "";
+	}
+	
 	@Override
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response,
 			FilterChain chain, Authentication authentication) throws IOException, ServletException 
@@ -71,6 +78,25 @@ public class StatelessLoginFilter extends AbstractAuthenticationProcessingFilter
 		// Add the authentication to the Security context
 		SecurityContextHolder.getContext().setAuthentication(userAuthentication);
 	}
+	
+	 @Override
+    public void doFilter(ServletRequest req, ServletResponse res,
+                         FilterChain chain) throws IOException, ServletException {
+        final HttpServletRequest request = (HttpServletRequest) req;
+        final HttpServletResponse response = (HttpServletResponse) res;
+        if (request.getMethod().equals("POST")) {
+            // If the incoming request is a POST, then we send it up
+            // to the AbstractAuthenticationProcessingFilter.
+            super.doFilter(request, response, chain);
+        } else {
+            // If it's a GET, we ignore this request and send it
+            // to the next filter in the chain.  In this case, that
+            // pretty much means the request will hit the /login
+            // controller which will process the request to show the
+            // login page.
+            chain.doFilter(request, response);
+        }
+    }
 	
 	private Collection<? extends GrantedAuthority> getAuthorities(Collection<Role> roles) {
 		return getGrantedAuthorities(getPrivileges(roles));
