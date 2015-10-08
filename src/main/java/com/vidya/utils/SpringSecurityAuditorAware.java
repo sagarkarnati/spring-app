@@ -4,7 +4,7 @@ import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import com.vidya.api.models.User;
+import com.vidya.api.db.models.User;
 
 
 public class SpringSecurityAuditorAware implements AuditorAware<User> {

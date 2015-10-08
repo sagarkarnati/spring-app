@@ -15,8 +15,8 @@ import org.testng.annotations.Test;
 
 import scala.Array;
 
-import com.vidya.api.models.Employee;
-import com.vidya.api.models.Role;
+import com.vidya.api.db.models.Employee;
+import com.vidya.api.db.models.Role;
 import com.vidya.api.repository.EmployeeRepository;
 
 @ContextConfiguration(locations = { "classpath:spring-base-test.xml", "classpath:spring-fongo-test.xml" })

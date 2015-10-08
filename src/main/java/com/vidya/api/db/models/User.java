@@ -1,4 +1,4 @@
-package com.vidya.api.models;
+package com.vidya.api.db.models;
 
 import java.util.List;
 
@@ -25,9 +25,10 @@ public class User extends BaseModel
 	@NotNull
 	private long expires;
 	
+	private String token;
+	
 	public User()
 	{
-	
 	}
 	
 	public User(String username)
@@ -73,5 +74,15 @@ public class User extends BaseModel
 	public void setExpires(long expires)
 	{
 		this.expires = expires;
+	}
+
+	public String getToken()
+	{
+		return token;
+	}
+
+	public void setToken(String token)
+	{
+		this.token = token;
 	}
 }

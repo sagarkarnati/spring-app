@@ -1,4 +1,4 @@
-package com.vidya.api.models;
+package com.vidya.api.db.models;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;

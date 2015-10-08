@@ -9,8 +9,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import com.vidya.api.models.Role;
-import com.vidya.api.models.User;
+import com.vidya.api.db.models.Role;
+import com.vidya.api.db.models.User;
 
 public class UserAuthentication implements Authentication {
 

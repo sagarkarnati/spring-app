@@ -1,4 +1,4 @@
-package com.vidya.api.models;
+package com.vidya.api.db.models;
 
 import java.util.List;
 
