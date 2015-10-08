@@ -13,7 +13,7 @@ import javax.xml.bind.DatatypeConverter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vidya.api.models.User;
+import com.vidya.api.db.models.User;
 
 public final class TokenHandler
 {

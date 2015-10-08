@@ -13,8 +13,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.vidya.api.models.Role;
-import com.vidya.api.models.User;
+import com.vidya.api.db.models.Role;
+import com.vidya.api.db.models.User;
 import com.vidya.api.repository.UserRepository;
 
 @Service("loginService")
@@ -27,8 +27,13 @@ public class LoginService implements UserDetailsService
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
 	{
 		List<User> findAll = userRepository.findAll();
+<<<<<<< HEAD
 		com.vidya.api.models.User user = null;
 		for (User usr : findAll)
+=======
+		com.vidya.api.db.models.User user = null;
+		for(User usr : findAll)
+>>>>>>> branch 'master' of https://github.com/sagarkarnati/spring-app
 		{
 			if (usr.getUsername().equals(username))
 				user = usr;

@@ -11,10 +11,10 @@
 	<!-- Any one who is a user can access this url with below pattern -->
 	<http authentication-manager-ref="authenticationManager">
 		<csrf disabled="true" />
-		<intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/auth/**" access="permitAll" />
 		<intercept-url pattern="/alps" access="hasRole('USER')" />
-		<custom-filter before="FORM_LOGIN_FILTER" ref="filterChainProxy"/>
-		<http-basic/>
+		<custom-filter before="FORM_LOGIN_FILTER" ref="filterChainProxy" />
+		<http-basic />
 		<logout />
 	</http>
 
@@ -22,10 +22,16 @@
 		<beans:constructor-arg ref="authenticationManager" />
 	</beans:bean>
 
-	<beans:bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy">
+	<beans:bean id="filterChainProxy"
+		class="org.springframework.security.web.FilterChainProxy">
 		<beans:constructor-arg>
 			<beans:list>
+<<<<<<< HEAD
 				<filter-chain pattern="/**" filters="
+=======
+				<filter-chain pattern="/**"
+					filters="
+>>>>>>> branch 'master' of https://github.com/sagarkarnati/spring-app
 									statelessLoginFilter,
 									statelessAuthFilter" />
 			</beans:list>

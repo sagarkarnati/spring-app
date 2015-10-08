@@ -1,6 +1,6 @@
 package com.vidya.api.service;
 
-import com.vidya.api.models.Employee;
+import com.vidya.api.db.models.Employee;
 
 public interface EmployeeService
 {
