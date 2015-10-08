@@ -10,7 +10,6 @@
 		    classpath*:spring-fongo.xml
 		    classpath*:spring-base.xml
 		    classpath*:spring-security.xml
-		    classpath*:spring-security.xml
 <!-- 		    classpath*:spring-swagger.xml -->
 <!-- 		    classpath*:spring-mongodb.xml -->
 <!-- 		    classpath*:spring-security.xml -->

@@ -1,12 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
 
-	
-</beans>
+	<!-- This is to enable security at method level -->
+	<global-method-security pre-post-annotations="enabled" />
+
+	<!-- Any one who is a user can access this url with below pattern -->
+	<http authentication-manager-ref="authenticationManager">
+		<csrf disabled="true" />
+		<intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/alps" access="hasRole('USER')" />
+		<custom-filter before="FORM_LOGIN_FILTER" ref="filterChainProxy"/>
+		<http-basic/>
+		<logout />
+	</http>
+
+	<beans:bean id="statelessLoginFilter" class="com.vidya.api.auth.StatelessLoginFilter">
+		<beans:constructor-arg ref="authenticationManager" />
+	</beans:bean>
+
+	<beans:bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy">
+		<beans:constructor-arg>
+			<beans:list>
+				<filter-chain pattern="/**" filters="
+									statelessLoginFilter,
+									statelessAuthFilter" />
+			</beans:list>
+		</beans:constructor-arg>
+	</beans:bean>
+
+	<authentication-manager id="authenticationManager">
+		<authentication-provider user-service-ref="loginService">
+			<password-encoder hash="sha" />
+		</authentication-provider>
+	</authentication-manager>
+</beans:beans>
