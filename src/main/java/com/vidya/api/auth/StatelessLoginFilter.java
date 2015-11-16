@@ -60,7 +60,7 @@ public class StatelessLoginFilter extends AbstractAuthenticationProcessingFilter
 
 		// Lookup the complete User object from the database and create an
 		// Authentication for it
-		final User authenticatedUser = repository.findUserByUsername(authentication.getName());
+		final User authenticatedUser = repository.findByUsername(authentication.getName());
 		final UserAuthentication userAuthentication = new UserAuthentication(authenticatedUser);
 
 		// Add the custom token as HTTP header to the response

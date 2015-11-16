@@ -1,26 +1,37 @@
 package com.vidya.api.db.models;
 
-import java.util.List;
-
-public class Role{
-	
+public class Role
+{
 	private String name;
-	
-	private List<String> privileges;
+	private String code;
 
-	public String getName() {
+	public Role()
+	{
+	}
+
+	public Role(String name, String code)
+	{
+		this.name = name;
+		this.code = code;
+	}
+
+	public String getName()
+	{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name)
+	{
 		this.name = name;
 	}
 
-	public List<String> getPrivileges() {
-		return privileges;
+	public String getCode()
+	{
+		return code;
 	}
 
-	public void setPrivileges(List<String> privileges) {
-		this.privileges = privileges;
+	public void setCode(String code)
+	{
+		this.code = code;
 	}
 }

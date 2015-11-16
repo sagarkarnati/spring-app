@@ -23,7 +23,7 @@ public class User extends BaseModel
 	private List<Role> roles;
 
 	@NotNull
-	private long expires;
+	private long expires = 21600000l;
 	
 	private String token;
 	

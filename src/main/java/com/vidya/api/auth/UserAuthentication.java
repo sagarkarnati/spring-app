@@ -42,8 +42,7 @@ public class UserAuthentication implements Authentication
 		List<String> privileges = new ArrayList<String>();
 		for (Role role : roles)
 		{
-			privileges.add(role.getName());
-			privileges.addAll(role.getPrivileges());
+			privileges.add(role.getCode());
 		}
 		return privileges;
 	}

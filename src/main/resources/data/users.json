@@ -1,5 +1,5 @@
 [{
-	"_class": "com.vidya.api.models.User",
+	"_class": "com.vidya.api.db.models.User",
 	"username": "username1@gmail.com",
 	"password": "b79aca2251469e626132a96ade2e5582d50b588e",
 	"roles": [{
@@ -8,7 +8,7 @@
 	"expires": 123456789,
 	"version": 0
 },{
-	"_class": "com.vidya.api.models.User",
+	"_class": "com.vidya.api.db.models.User",
 	"username": "username2@gmail.com",
 	"password": "b79aca2251469e626132a96ade2e5582d50b588e",
 	"roles": [{
