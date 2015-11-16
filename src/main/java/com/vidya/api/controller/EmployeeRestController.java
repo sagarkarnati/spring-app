@@ -12,11 +12,8 @@ import javax.ws.rs.POST;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 import org.springframework.security.access.prepost.PreAuthorize;
-=======
 import org.springframework.web.bind.annotation.RequestBody;
->>>>>>> stash
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,8 +24,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.vidya.api.db.models.Employee;
 import com.vidya.api.db.models.Role;
 import com.vidya.api.service.EmployeeService;
-import com.wordnik.swagger.annotations.ApiOperation;
-import com.wordnik.swagger.annotations.ApiParam;
 
 @RestController
 @RequestMapping("/custom")

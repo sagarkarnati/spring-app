@@ -27,13 +27,8 @@ public class LoginService implements UserDetailsService
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
 	{
 		List<User> findAll = userRepository.findAll();
-<<<<<<< HEAD
-		com.vidya.api.models.User user = null;
-		for (User usr : findAll)
-=======
 		com.vidya.api.db.models.User user = null;
 		for(User usr : findAll)
->>>>>>> branch 'master' of https://github.com/sagarkarnati/spring-app
 		{
 			if (usr.getUsername().equals(username))
 				user = usr;

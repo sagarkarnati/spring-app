@@ -1,18 +1,14 @@
 package com.vidya.api.repos;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.Test;
 
-<<<<<<< HEAD
-import com.vidya.api.models.Employee;
-=======
-import scala.Array;
-
 import com.vidya.api.db.models.Employee;
 import com.vidya.api.db.models.Role;
->>>>>>> branch 'master' of https://github.com/sagarkarnati/spring-app
 import com.vidya.api.repository.EmployeeRepository;
 
 @ContextConfiguration(locations = { "classpath:spring-base-test.xml", "classpath:spring-fongo-test.xml" })
@@ -33,7 +29,10 @@ public class EmployeeRepositoryTest extends AbstractTestNGSpringContextTests
 	public void createCustomerConfiguration()
 	{
 		Employee employee = new Employee();
-		employee.setFirstName("testEmployee");
+		employee.setUsername("sagarkarnati");
+		employee.setPassword("123456");
+		employee.setFirstName("Vidya");
+		employee.setRoles(Arrays.asList(new Role("Admin","ROLE_ADMIN")));
 
 		employeeRepository.save(employee);
 	}

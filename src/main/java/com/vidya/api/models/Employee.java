@@ -7,6 +7,7 @@ import javax.validation.constraints.Size;
 
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
+import com.vidya.api.db.models.Devices;
 import com.vidya.db.utils.CascadeSave;
 
 public class Employee extends BaseModel
