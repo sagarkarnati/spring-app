@@ -37,6 +37,7 @@ Build Status : <img src="https://travis-ci.org/sagarkarnati/spring-app.svg?branc
 
 ## TODO
 *   Auditing entities in Spring Data MongoDB
+*   http://metrics.dropwizard.io/ integration
 *   Spring security
 	*   Project setup and configuration.
 		*   Resource level security configuration.
