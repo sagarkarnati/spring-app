@@ -4,14 +4,17 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.validation.Valid;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,8 +60,7 @@ public class EmployeeRestController
 	}
 
 	@RequestMapping(value="/upload", method=RequestMethod.POST)
-	public @ResponseBody String handleFileUpload(@RequestParam("name") String name, 
-			@RequestParam("file") MultipartFile file){
+	public @ResponseBody String handleFileUpload(@RequestParam("name") String name,@RequestParam("file") MultipartFile file){
 		if (!file.isEmpty()) {
 			try {
 				byte[] bytes = file.getBytes();
@@ -73,5 +75,11 @@ public class EmployeeRestController
 		} else {
 			return "You failed to upload " + name + " because the file was empty.";
 		}
+	}
+	
+	@RequestMapping(value="/search", method=RequestMethod.GET)
+	public List<Employee> searchEmployee(@NotBlank @RequestParam("text") String name)
+	{
+		return employeeService.search(name);
 	}
 }

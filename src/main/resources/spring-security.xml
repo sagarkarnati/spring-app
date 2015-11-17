@@ -26,14 +26,7 @@
 		class="org.springframework.security.web.FilterChainProxy">
 		<beans:constructor-arg>
 			<beans:list>
-<<<<<<< HEAD
-				<filter-chain pattern="/**" filters="
-=======
-				<filter-chain pattern="/**"
-					filters="
->>>>>>> branch 'master' of https://github.com/sagarkarnati/spring-app
-									statelessLoginFilter,
-									statelessAuthFilter" />
+				<filter-chain pattern="/**" filters="statelessLoginFilter,statelessAuthFilter" />
 			</beans:list>
 		</beans:constructor-arg>
 	</beans:bean>

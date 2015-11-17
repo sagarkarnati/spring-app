@@ -1,5 +1,7 @@
 package com.vidya.api.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +15,14 @@ public class EmployeeServiceImpl implements EmployeeService
 	private EmployeeRepository employeeRepository;
 
 	@Override
-	public Employee getEmployeeByFirstName(String firstName)
+	public List<Employee> getEmployeeByFirstName(String firstName)
 	{
 		return employeeRepository.findByFirstName(firstName);
+	}
+
+	@Override
+	public List<Employee> search(String name)
+	{
+		return employeeRepository.search(name);
 	}
 }

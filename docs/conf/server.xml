@@ -1,0 +1,5 @@
+<Environment name="username" type="java.lang.String" value="localhost"/>
+<Environment name="password" type="java.lang.String" value="27017"/>
+<Environment name="host" type="java.lang.String" value="root"/>
+<Environment name="port" type="java.lang.String" value="root"/>
+<Environment name="dbName" type="java.lang.String" value="test"/>

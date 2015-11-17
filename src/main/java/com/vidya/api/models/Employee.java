@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import com.vidya.api.db.models.Devices;
@@ -14,9 +15,11 @@ public class Employee extends BaseModel
 {
 	@NotNull
 	@Size(min = 3)
+	@TextIndexed(weight = 3)
 	private String firstName;
-
+	@TextIndexed(weight = 1)
 	private String middleName;
+	@TextIndexed(weight = 1)
 	private String lastName;
 
 	@DBRef

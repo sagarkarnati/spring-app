@@ -34,8 +34,8 @@ Build Status : <img src="https://travis-ci.org/sagarkarnati/spring-app.svg?branc
 *   Hibernate Validation framework for domain objects.
 *   MongoDB level validations
 *   Env Specific Logging
-	add the below parameter to container runtime arguments
-	 -Dlog4j.configuration=log4j-<env>.properties	 
+	*   Add the below parameter to container runtime arguments
+	 	-Dlog4j.configuration=log4j-<env>.properties	 
 *   Spring security
 	*   Project setup and configuration.
 		*   Resource level security configuration.
@@ -52,7 +52,8 @@ Build Status : <img src="https://travis-ci.org/sagarkarnati/spring-app.svg?branc
 *   Spring security
 	*   Using this with angular JS Application running in a different domain.
 *   Specifying index in the domain model classes
-*   Full text search support
+*   Full text search support with mongodb
+*   Full text search support with elastic search.
 *   Saving files GridFS Support
 *   HTTP Request and Response Logging. 
 *   PUB-SUB model for mongodb
@@ -61,4 +62,11 @@ Build Status : <img src="https://travis-ci.org/sagarkarnati/spring-app.svg?branc
 *   Code Coverage Tool like ECL-EMMA
 *   Swagger Api Tool Integration.
 *   Adding Spring Security OAuth 1.0
-*   Adding Spring Security OAuth 2.0 
+*   Adding Spring Security OAuth 2.0
+*   Integration testing support
+*   Release management.
+*   Togglz integration.
+*   YAML for configurations.
+*   SPEL Usage.
+*   LogStash.
+*   Log4j 2 support with asyc logging to LogStash.

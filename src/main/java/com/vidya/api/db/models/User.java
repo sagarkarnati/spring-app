@@ -7,6 +7,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 
 public class User extends BaseModel
 {
@@ -14,6 +15,7 @@ public class User extends BaseModel
 	@NotNull
 	@Size(min = 4)
 	@Indexed(unique = true)
+	@TextIndexed(weight = 10)
 	private String username;
 
 	@NotNull

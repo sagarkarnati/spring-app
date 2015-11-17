@@ -41,6 +41,9 @@
 
 		<!-- POI -->
 		<poi.version>3.13</poi.version>
+		
+		<!-- Apache Lucene -->
+		<lucene.core.version>5.3.1</lucene.core.version>		
 	</properties>
 	<dependencies>
 		<!-- Spring and Transactions -->
@@ -311,14 +314,14 @@
 			<artifactId>google-maps-services</artifactId>
 			<version>0.1.7</version>
 		</dependency>
-		
-		<!--  -->
+
+		<!-- -->
 		<dependency>
 			<groupId>com.jayway.restassured</groupId>
 			<artifactId>rest-assured</artifactId>
 			<version>2.6.0</version>
 		</dependency>
-		
+
 		<!-- Slack -->
 		<dependency>
 			<groupId>com.ullink.slack</groupId>
@@ -345,6 +348,13 @@
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.3.1</version>
+		</dependency>
+
+		<!-- Apache Lucene -->
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>${lucene.core.version}</version>
 		</dependency>
 	</dependencies>
 	<build>
