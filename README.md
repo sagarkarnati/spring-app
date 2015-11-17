@@ -33,22 +33,24 @@ Build Status : <img src="https://travis-ci.org/sagarkarnati/spring-app.svg?branc
 *   Exception Handler in REST Services
 *   Hibernate Validation framework for domain objects.
 *   MongoDB level validations
-
-
-## TODO
-*   Auditing entities in Spring Data MongoDB
-*   http://metrics.dropwizard.io/ integration
+*   Env Specific Logging
+	add the below parameter to container runtime arguments
+	 -Dlog4j.configuration=log4j-<env>.properties	 
 *   Spring security
 	*   Project setup and configuration.
 		*   Resource level security configuration.
 		*   Method level security configuration using AOP.
 	*   Authentication using Mongo DB.
 	*   Application specific roles instead of spring default roles.
-	*   Using this with angular JS Application running in a different domain.
 	*   Securing the communication with Token based authentication.
-*   Spring security token based authentication
-*   Env Specific Logging
 *   Create an unique identifier to trace to all the logs.
+
+
+## TODO
+*   Auditing entities in Spring Data MongoDB
+*   http://metrics.dropwizard.io/ integration
+*   Spring security
+	*   Using this with angular JS Application running in a different domain.
 *   Specifying index in the domain model classes
 *   Full text search support
 *   Saving files GridFS Support
