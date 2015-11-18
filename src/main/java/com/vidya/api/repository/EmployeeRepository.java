@@ -11,4 +11,6 @@ public interface EmployeeRepository
 	public List<Employee> findByFirstName(String firstName);
 	
 	public List<Employee> search(String text);
+
+	public void delete(String id);
 }

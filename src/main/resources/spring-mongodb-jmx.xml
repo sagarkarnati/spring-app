@@ -7,9 +7,6 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- Default bean name is 'mongo' -->
-	<mongo:mongo host="localhost" port="27017" />
-
 	<!-- by default look for a Mongo object named 'mongo' -->
 	<mongo:jmx />
 

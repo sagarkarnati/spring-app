@@ -42,4 +42,13 @@ public class EmployeeRepositoryImpl implements EmployeeRepository
 	{
 		mongoTemplate.save(employee);		
 	}
+
+	@Override
+	public void delete(String id)
+	{
+		Employee employee = new Employee();
+		employee.setId(id);
+		
+		mongoTemplate.remove(employee);		
+	}
 }

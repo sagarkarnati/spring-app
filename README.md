@@ -45,16 +45,19 @@ Build Status : <img src="https://travis-ci.org/sagarkarnati/spring-app.svg?branc
 	*   Securing the communication with Token based authentication.
 *   Create an unique identifier to trace to all the logs.
 
+## InProgress
+*   Saving files GridFS Support
+*   Full text search support with mongodb
+*   Specifying index in the domain model classes
+*   Integration testing support
+	*	Adding server.xml entries and memory params to the maven integration testing suit   
 
 ## TODO
 *   Auditing entities in Spring Data MongoDB
 *   http://metrics.dropwizard.io/ integration
 *   Spring security
 	*   Using this with angular JS Application running in a different domain.
-*   Specifying index in the domain model classes
-*   Full text search support with mongodb
 *   Full text search support with elastic search.
-*   Saving files GridFS Support
 *   HTTP Request and Response Logging. 
 *   PUB-SUB model for mongodb
 *   Spring Profiles for Continuous Integration.
@@ -63,10 +66,16 @@ Build Status : <img src="https://travis-ci.org/sagarkarnati/spring-app.svg?branc
 *   Swagger Api Tool Integration.
 *   Adding Spring Security OAuth 1.0
 *   Adding Spring Security OAuth 2.0
-*   Integration testing support
 *   Release management.
 *   Togglz integration.
 *   YAML for configurations.
 *   SPEL Usage.
 *   LogStash.
 *   Log4j 2 support with asyc logging to LogStash.
+*   Artificial Intelligence
+*   Machine Learning
+*   Create a docker file to setup the environment for quickly running this app.
+*   Unit Testing spring mvc components with Rest Assured
+	https://github.com/jayway/rest-assured/wiki/Usage#spring-mock-mvc-module
+*   JSON Schema
+	http://json-schema.org/examples.html	

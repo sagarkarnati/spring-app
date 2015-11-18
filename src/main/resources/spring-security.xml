@@ -11,6 +11,7 @@
 	<!-- Any one who is a user can access this url with below pattern -->
 	<http authentication-manager-ref="authenticationManager">
 		<csrf disabled="true" />
+		<intercept-url pattern="/api/employee/**" access="permitAll" />
 		<intercept-url pattern="/auth/**" access="permitAll" />
 		<intercept-url pattern="/alps" access="hasRole('USER')" />
 		<custom-filter before="FORM_LOGIN_FILTER" ref="filterChainProxy" />

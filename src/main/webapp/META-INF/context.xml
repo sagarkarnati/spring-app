@@ -1,6 +1,5 @@
 <Context>
-	<ResourceLink name="username" global="username" type="java.lang.String"/>
-    <ResourceLink name="password" global="password" type="java.lang.String"/>
+	<ResourceLink name="authString" global="authString" type="java.lang.String"/>
     <ResourceLink name="host" global="host" type="java.lang.String"/>
     <ResourceLink name="port" global="port" type="java.lang.String"/>
     <ResourceLink name="dbName" global="dbName" type="java.lang.String"/>

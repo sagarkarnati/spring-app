@@ -4,8 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<!-- FIXME : get the port from the properties -->
-	<mongo:mongo-client host="${mongo.host}" port="27017" credentials="${mongo.username}:${mongo.password}@${mongo.dbName}"/>
+	<mongo:mongo-client host="${mongo.host}" port="${mongo.port}" credentials="${mongo.authString}"/>
 
 	<mongo:db-factory dbname="${mongo.dbName}" mongo-ref="mongo" id="mongoDbFactory" />
 
@@ -17,5 +16,5 @@
 	
 	<!-- For auditing -->
 	<mongo:auditing auditor-aware-ref="auditor" />	
-	<bean id="auditor" class="com.vidya.utils.MyAppAuditor"/>	
+	<bean id="auditor" class="com.vidya.utils.MyAppAuditor"/>
 </beans>
