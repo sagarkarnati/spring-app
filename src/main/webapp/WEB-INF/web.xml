@@ -6,11 +6,12 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			classpath*:spring-jndi.xml
+<!-- 			classpath*:spring-jndi.xml -->
 		    classpath*:spring-base.xml
 			classpath*:spring-mvc.xml
 		    classpath*:spring-security.xml
-		    classpath*:spring-mongodb.xml
+		    classpath*:spring-fongo.xml		    
+<!-- 		    classpath*:spring-mongodb.xml -->
 <!-- 			classpath*:spring-jdbc.xml -->
 <!-- 		    classpath*:spring-swagger.xml -->
 		</param-value>
