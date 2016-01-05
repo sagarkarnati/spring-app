@@ -78,4 +78,6 @@ Build Status : <img src="https://travis-ci.org/sagarkarnati/spring-app.svg?branc
 *   Unit Testing spring mvc components with Rest Assured
 	https://github.com/jayway/rest-assured/wiki/Usage#spring-mock-mvc-module
 *   JSON Schema
-	http://json-schema.org/examples.html	
+	http://json-schema.org/examples.html
+*   Disable running Integration Tests by default
+		
