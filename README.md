@@ -17,11 +17,9 @@ Build Status : <img src="https://travis-ci.org/sagarkarnati/spring-app.svg?branc
 
 ## Tests
 
-
-## Contributors
-
-
 ## License
+	
+###### This is my personal play space and if you want feel free to use it anywhere you want.But plz suggest me if i am wrong or some thing we can do in a better way. 
 
 ## Available Features
 *   Spring seed project setup
