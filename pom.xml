@@ -26,9 +26,9 @@
 		<!-- Spring -->
 		<spring-framework.version>4.2.0.RELEASE</spring-framework.version>
 		<spring-security.framework.version>4.0.2.RELEASE</spring-security.framework.version>
-		<spring-data-mongodb.version>1.7.2.RELEASE</spring-data-mongodb.version>
+		<spring-data-mongodb.version>1.9.1.RELEASE</spring-data-mongodb.version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
-		<mongo-java-driver.version>3.0.3</mongo-java-driver.version>
+		<mongo-java-driver.version>3.2.2</mongo-java-driver.version>
 
 		<!-- Logging -->
 		<slf4j.version>1.7.12</slf4j.version>
