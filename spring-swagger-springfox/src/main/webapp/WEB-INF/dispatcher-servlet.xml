@@ -8,17 +8,16 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-
     <!-- Standard xml based mvc config-->
     <mvc:annotation-driven enable-matrix-variables="true"/>
 
     <!-- Scan some API controllers-->
-    <context:component-scan base-package="com.vidya.api.controller"/>
+    <context:component-scan base-package="com.vidya"/>
 
     <!-- Enables swgger ui-->
     <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/"/>
     <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
 
     <!-- Include a swagger configuration-->
-    <bean name="/applicationSwaggerConfig" class="springfoxdemo.xml.swagger.ApplicationSwaggerConfig"/>
+    <bean name="/applicationSwaggerConfig" class="com.vidya.api.swagger.config.ApplicationSwaggerConfig"/>
 </beans>

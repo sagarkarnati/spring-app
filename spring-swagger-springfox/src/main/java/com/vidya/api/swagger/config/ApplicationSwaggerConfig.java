@@ -1,4 +1,4 @@
-package springfoxdemo.xml.swagger;
+package com.vidya.api.swagger.config;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 

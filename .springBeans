@@ -15,7 +15,6 @@
 		<config>src/main/resources/spring-fongo.xml</config>
 		<config>src/main/resources/spring-base.xml</config>
 		<config>src/main/resources/spring-mvc.xml</config>
-		<config>src/main/webapp/WEB-INF/dispatcher-servlet.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

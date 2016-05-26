@@ -39,7 +39,7 @@ public class TestGMapsService
 			{
 				MongoDatabase database = mongoClient.getDatabase("GEO_TEMP");
 
-				Path file = Paths.get("C:\\Users\\itvxk03\\git\\spring-app\\src\\main\\resources\\employee.csv");
+				Path file = Paths.get("C:\\Users\\sagarkarnati\\git\\spring-app\\src\\main\\resources\\employee.csv");
 				BufferedReader reader = Files.newBufferedReader(file, Charset.defaultCharset());
 				String line = null;
 				Set<String> places = new HashSet<String>();
