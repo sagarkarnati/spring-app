@@ -3,6 +3,9 @@ package com.vidya.api.controller;
 import static com.jayway.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -104,4 +107,35 @@ public class EmployeeRestControllerIT
 		   .statusCode(200);
 	}
 
+	/**
+	 * Test for upload file
+	 * 
+	 */
+	@Test
+	public void test_uploadProfile()
+	{
+		InputStream io = new ByteArrayInputStream("This is the test file content".getBytes());
+		
+		given()
+			.multiPart("file","EmployeeProfile.txt",io)
+			.queryParam("name", "EmployeeProfile.txt")
+		.when()			
+			.post("/api/employee/1/profile")
+	   .then()
+		   .statusCode(200);
+	}
+	
+	/**
+	 * Test for upload file
+	 * 
+	 */
+	@Test
+	public void test_dowloadProfile()
+	{		
+		given()
+		.when()
+			.get("/api/employee/1/profile")
+	   .then()
+		   .statusCode(200);
+	}
 }

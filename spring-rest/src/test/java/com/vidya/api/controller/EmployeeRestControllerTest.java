@@ -3,10 +3,14 @@ package com.vidya.api.controller;
 import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static org.hamcrest.Matchers.equalTo;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
 import org.testng.annotations.Test;
 
 import com.jayway.restassured.http.ContentType;
 import com.vidya.api.view.models.EmployeeDTO;
+import com.vividsolutions.jts.io.ByteArrayInStream;
 
 /**
  * Unit test for Employee Rest Controller
@@ -96,6 +100,40 @@ public class EmployeeRestControllerTest
 			.standaloneSetup(new EmployeeRestController())						
 		.when()
 			.delete("/api/employee/1")
+	   .then()
+		   .statusCode(200);
+	}
+	
+	/**
+	 * Test for upload file
+	 * 
+	 */
+	@Test
+	public void test_uploadProfile()
+	{
+		InputStream io = new ByteArrayInputStream("This is the test file content".getBytes());
+		
+		given()
+			.standaloneSetup(new EmployeeRestController())
+			.multiPart("file","EmployeeProfile.txt",io)
+			.queryParam("name", "EmployeeProfile.txt")
+		.when()			
+			.post("/api/employee/1/profile")
+	   .then()
+		   .statusCode(200);
+	}
+	
+	/**
+	 * Test for upload file
+	 * 
+	 */
+	@Test
+	public void test_downloadProfile()
+	{
+		given()
+			.standaloneSetup(new EmployeeRestController())			
+		.when()		
+			.get("/api/employee/1/profile")
 	   .then()
 		   .statusCode(200);
 	}
