@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.equalTo;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -29,7 +30,14 @@ public class EmployeeRestControllerIT
 	@BeforeClass
 	public void setup()
 	{
-		RestAssured.baseURI = "http://localhost:8080/";
+		RestAssured.baseURI = "http://localhost";
+		RestAssured.port = Integer.getInteger("tomcat.http.port", 58888);
+		System.err.println(" PORT :::: "+RestAssured.port);
+	}
+	
+	@AfterClass
+	public void unconfigureRestAssured() {
+	    RestAssured.reset();
 	}
 	
 	@Test

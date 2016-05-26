@@ -77,3 +77,6 @@ Build Status : <img src="https://travis-ci.org/sagarkarnati/spring-app.svg?branc
 	http://json-schema.org/examples.html
 *   Disable running Integration Tests by default
 		
+##References
+https://sumanpapanaboina.wordpress.com/2012/01/29/avoiding-port-conflicts-while-running-integration-tests-using-embedded-jetty/
+http://vertx.io/blog/unit-and-integration-tests/
