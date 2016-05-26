@@ -13,7 +13,8 @@
 		    classpath*:spring-fongo.xml		    
 <!-- 		    classpath*:spring-mongodb.xml -->
 <!-- 			classpath*:spring-jdbc.xml -->
-<!-- 		    classpath*:spring-swagger.xml -->
+ 		    classpath*:spring-swagger.xml
+ 		    WEB-INF/dispatcher-servlet.xml
 		</param-value>
 	</context-param>
 	<listener>
