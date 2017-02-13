@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.vidya.api</groupId>
 	<artifactId>vidya-api</artifactId>
@@ -17,6 +17,9 @@
 			<url>http://oss.jfrog.org/artifactory/oss-release-local</url>
 		</repository>
 	</repositories>
+	<prerequisites>
+		<maven>3.0.3</maven>
+	</prerequisites>
 	<modules>
 		<module>spring-swagger-springfox</module>
 		<module>spring-rest</module>
@@ -56,6 +59,11 @@
 	</properties>
 	<dependencies>
 		<!-- Spring and Transactions -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -511,6 +519,6 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.0-beta-9</version>
 			</plugin>
-		</plugins>		
+		</plugins>
 	</build>
 </project>
